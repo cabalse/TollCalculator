@@ -61,3 +61,5 @@ toll_free - true/false, if the vehicle is free of toll or not
 errorMessages - A array of error messages, can be an empty array if no error is present in the input
 vehicle - The vehicle type as string
 passes - The total number of passes the current vehicle as has done, faulty dates are not counted
+
+
