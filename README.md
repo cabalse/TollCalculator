@@ -8,56 +8,56 @@ The calculator is accessible as a Node Module and through a Web API.
 
 ## Node Module
 
-The Node Module exports the TollCalculator class that provides a method for calculating the total toll fee.
+The Node Module exports the TollCalculator class that provides a method for calculating the total toll fee.<br/>
 
-The TollCalculator is instantiated with the following parameters:
+The TollCalculator is instantiated with the following parameters:<br/>
 
-@param tollPeriods:
-Defines the different time periods, from and to, during a day and the there toll fees.
-json in the format [{"from": time, "to": time, "tollFee": tollFeeName},...]
-time is string with the format HH:mm
-tollFeeName relates to the 'name' name in tollFees json param
+@param tollPeriods:<br/>
+Defines the different time periods, from and to, during a day and the there toll fees.<br/>
+json in the format [{"from": time, "to": time, "tollFee": tollFeeName},...]<br/>
+time is string with the format HH:mm<br/>
+tollFeeName relates to the 'name' name in tollFees json param<br/>
 
-@param tollFees:
-Defines the fees used for the different time periods.
-json in the format [{"name": tollFeeName, "fee": fee },...]
-tollFeeName relates to the 'tollFee' name in the tollPeriods json param
-fee is the toll fee
+@param tollFees:<br/>
+Defines the fees used for the different time periods.<br/>
+json in the format [{"name": tollFeeName, "fee": fee },...]<br/>
+tollFeeName relates to the 'tollFee' name in the tollPeriods json param<br/>
+fee is the toll fee<br/>
 
-@param tollFreeVehicles:
-Defines the vehicle types that don't pay any toll fee.
-json in the format [vehicleType,...]
-vehicleType is the vehicle's type as string
+@param tollFreeVehicles:<br/>
+Defines the vehicle types that don't pay any toll fee.<br/>
+json in the format [vehicleType,...]<br/>
+vehicleType is the vehicle's type as string<br/>
 
-Method: calculate
-@param vehicle - the vehicle as a Vehicle object
-@param dates - date and time of all passes on one day as datestring array
-@return - the total toll fee for that day
+Method: calculate<br/>
+@param vehicle - the vehicle as a Vehicle object<br/>
+@param dates - date and time of all passes on one day as datestring array<br/>
+@return - the total toll fee for that day<br/>
 
 ## The Web API
 
-The web API is assessable on the following address:
-localhost:3000/toll-calculation
+The web API is assessable on the following address:<br/>
+localhost:3000/toll-calculation<br/>
 
-The API expects the following json:
+The API expects the following json:<br/>
 {"vehicle": vehicleType, "tollPasses": ["YYYY-MM-DD HH:mm:ss",...]}
 
-'vehicleType' is the string representation of the type of vehicle. Following are allowed:
-car, motorbike, tractor, emergency, diplomat, foreign, military.
+'vehicleType' is the string representation of the type of vehicle. Following are allowed:<br/>
+car, motorbike, tractor, emergency, diplomat, foreign, military.<br/>
 
-'tollPasses' is an array of datestring in the following format 'YYYY-MM-DD HH:mm:ss'.
+'tollPasses' is an array of datestring in the following format 'YYYY-MM-DD HH:mm:ss'.<br/>
 
-The web API result is in the following format:
-{
-"tollFee": tollFee,
-"toll_free": false,
-"errorMessages": [errorString,...],
-"vehicle": vehicelType,
-"passes": passes
-}
+The web API result is in the following format:<br/>
+{<br/>
+"tollFee": tollFee,<br/>
+"toll_free": false,<br/>
+"errorMessages": [errorString,...],<br/>
+"vehicle": vehicelType,<br/>
+"passes": passes<br/>
+}<br/>
 
-tollFee - The total fee for the day for the current vehicle, 0 - 60
-toll_free - true/false, if the vehicle is free of toll or not
-errorMessages - A array of error messages, can be an empty array if no error is present in the input
-vehicle - The vehicle type as string
-passes - The total number of passes the current vehicle as has done, faulty dates are not counted
+tollFee - The total fee for the day for the current vehicle, 0 - 60<br/>
+toll_free - true/false, if the vehicle is free of toll or not<br/>
+errorMessages - A array of error messages, can be an empty array if no error is present in the input<br/>
+vehicle - The vehicle type as string<br/>
+passes - The total number of passes the current vehicle as has done, faulty dates are not counted<br/>
