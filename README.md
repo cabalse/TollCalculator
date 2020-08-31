@@ -31,7 +31,7 @@ vehicleType is the vehicle's type as string<br/>
 
 Method: calculate<br/>
 @param vehicle - the vehicle as a Vehicle object<br/>
-@param dates - date and time of all passes on one day as datestring array<br/>
+@param dates - date and time of all passes on one day as a datestring array. The dates shall be in order from earliest to latest.<br/>
 @return - the total toll fee for that day<br/>
 
 ## The Web API
@@ -40,12 +40,12 @@ The web API is assessable on the following address:<br/>
 localhost:3000/toll-calculation<br/>
 
 The API expects the following json:<br/>
-{"vehicle": vehicleType, "tollPasses": ["YYYY-MM-DD HH:mm:ss",...]}
+{"vehicle": vehicleType, "tollPasses": [date,...]}
 
 'vehicleType' is the string representation of the type of vehicle. Following are allowed:<br/>
 car, motorbike, tractor, emergency, diplomat, foreign, military.<br/>
 
-'tollPasses' is an array of datestring in the following format 'YYYY-MM-DD HH:mm:ss'.<br/>
+'tollPasses' is an array of datestrings. The dates shall be in order from earliest to latest.<br/>
 
 The web API result is in the following format:<br/>
 {<br/>
